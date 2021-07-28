@@ -1,16 +1,17 @@
 // Url API : https://www.ericfreelance.fr/api/check_user.php
-
+/*
 function check_user() {
 
     const logPass = 'eric@free.fr|123456';
     return logPass;
     
-}; 
+}; */
+
  
 const promise = fetch('https://www.ericfreelance.fr/api/check_user.php', {
 
   method: 'POST',
-  body: JSON.stringify(check_user),
+  body: JSON.stringify(),
   headers: {
       'Content-Type': 'application/json'
   },
@@ -22,9 +23,19 @@ promise.then(async (response) => {
     console.log(response);
     const contenu = await response.json();
     console.log(contenu);
+    
+    if(response.ok){
+      console.log(`resultat est ok`);
+
+    }
+    else {
+      console.log(`réponse du serveur : ${response.status}`);
+      
+    }
   } 
-  catch (e) {
-    console.log(e);
+  catch (err) {
+    console.log(err);
+    
   }
 });
     
@@ -43,8 +54,49 @@ function validation() {
 			document.getElementById('message').innerText = "L'authentification a échoué !"; // return false
 		}
 			
+}
+
+// Effacer les données et changer les chiffres de la grilles
+effacer();
+
+	function effacer() {
+
+		let nb_alea;
+		let test = true; 
+		let chaine = "";
+
+		purger(); // permet de nettoyer la grille pour régenerer la grille
+
+		for (let i = 0; i < 10; i++) { // chiffre aléatoire avec des cellules vides
+
+			while (test == true) {
+				nb_alea = Math.floor(Math.random() * 16); // floor au dessus du chiffre 15 -> 16
+				if (chaine.indexOf("-" + nb_alea + "-") > -1)
+				{
+					nb_alea = Math.floor(Math.random() * 16);
+				}	
+				else { 
+					document.getElementById('case' + nb_alea).innerHTML = "<input type='button' value='" + i + "' onClick='document.getElementById(\"password\").value += " + i + "' />";
+					chaine += "-" + nb_alea + "-";
+					test = false;
+				}
+			}
+
+			test = true;
+		}
 	}
 
+	function purger() { // régenère la grille
+			for (let i = 0; i < 16; i++) {
+				document.getElementById('case' + i).innerHTML = ""; // réinitialise à vide ""
+			}
+			document.getElementById('login').value = "";
+			document.getElementById('password').value = "";
+	}
+
+
+
+// un Formulaire plus précis pour les utilisateurs
 const Form = document.getElementById('myForm');
 
 Form.addEventListener('submit', (e) => {
@@ -53,7 +105,6 @@ Form.addEventListener('submit', (e) => {
 
     if(inpEmail.value.trim() == ""){ // si vide on arrête la soumission
         
-
         const ErrorEmail = document.getElementById('erreurEmail');
         
         ErrorEmail.innerHTML = "Le champs Identification est requis !";
@@ -64,7 +115,7 @@ Form.addEventListener('submit', (e) => {
 
 
     const inpPassword = document.getElementById('password');
-    let Regex = /^[1-9]+$/; // on accepte les chiffres de 1 à 9 répéter
+    let Regex = /^[0-9]+$/; // Accepte les chiffres de 0 à 9 répéter
 
     if(inpPassword.value.trim() == ""){ // si vide on arrête la soumission
         
@@ -74,19 +125,19 @@ Form.addEventListener('submit', (e) => {
         ErrorPassword.style.color = 'red';
         e.preventDefault();
     }
-    else if (Regex.test(inpPassword.value) == false){ // si ce n'est pas bon
+    else if (Regex.test(inpPassword.value) == false){ // si ce n'est pas bon, d'autre valeurs que les chiffres
        
         const ErrorPassword = document.getElementById('erreurPassword');
         ErrorPassword.innerHTML = "Le Mot de Passe doit comporter uniquement des chifres !";
         ErrorPassword.style.color = 'red';
          e.preventDefault();
     }
-
+   
 });
 
 /*
+  La grille
 
-// Les cellules
 let cel = document.querySelector('#cellule');
 let div = document.createElement('div');
 div.setAttribute('id', 'cases')
@@ -109,44 +160,6 @@ for (let i = 0; i < 16; i++) {
 }
 
 cel.appendChild(div);  */
-
-
-generation();
-
-	function generation() {
-
-		let nb_alea;
-		let test = true; 
-		let chaine = "";
-
-		purger(); // permet de nettoyer la grille pour régenerer la grille
-
-		for (let i = 0; i < 10; i++) {
-
-			while (test == true) {
-				nb_alea = Math.floor(Math.random() * 16); // floor au dessus du chiffre
-				if (chaine.indexOf("-" + nb_alea + "-") > -1)
-				{
-					nb_alea = Math.floor(Math.random() * 16);
-				}	
-				else {
-					document.getElementById('case' + nb_alea).innerHTML = "<input type='button' value='" + i + "' onClick='document.getElementById(\"password\").value += " + i + "' />";
-					chaine += "-" + nb_alea + "-";
-					test = false;
-				}
-			}
-
-			test = true;
-		}
-	}
-
-	function purger() { // régenère la grille
-			for (let i = 0; i < 16; i++) {
-				document.getElementById('case' + i).innerHTML = ""; // réinitialise à vide ""
-			}
-			document.getElementById('login').value = "";
-			document.getElementById('password').value = "";
-	}
 
 
 
