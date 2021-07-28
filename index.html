@@ -14,59 +14,57 @@
 
 	<h1>Authentification</h1>
 
-	<span class="message"></span>
+	<div class="commentaire">
+	<div id="message"></div>
+	</div>
 
 	<div class="container">
 		
 		<form id="myForm">
 
 				<label for="login">Identification</label>
-				<input type="email" name="email" id="login" placeholder="Saisissez votre identifiant">
+				<input type="email" name="login" id="login" placeholder="Saisissez votre identifiant">
 				<span id="erreurEmail"></span>
 				<label for="password">Mot de Passe</label>
 				<input type="password" name="password" id="password" placeholder="Composer votre mot de passe">
 				<span id="erreurPassword"></span>
 		
-			<div id="clavier">
+			<div id="grille">
 
-				<div>
-					<input id="cellule"/>
-					<input id="cellule"/>
-					<input id="cellule"/>
-					<input id="cellule"/>
+				<div class="block">
+					<div class="case" id="case0"></div>
+					<div class="case" id="case1"></div>
+					<div class="case" id="case2"></div>
+					<div class="case" id="case3"></div>
 				</div>
-
-				<div>
-					
-					<input id="cellule"/>
-					<input id="cellule"/>
-					<input id="cellule"/>
-					<input id="cellule"/>
-
+				
+				<div class="block">
+					<div class="case" id="case4"></div>
+					<div class="case" id="case5"></div>
+					<div class="case" id="case6"></div>
+					<div class="case" id="case7"></div>
 				</div>
-
-				<div>
-					
-					<input  id="cellule"/>
-					<input  id="cellule"/>
-					<input  id="cellule"/>
-					<input  id="cellule"/>
+				
+				<div class="block">
+					<div class="case" id="case8"></div>
+					<div class="case" id="case9"></div>
+					<div class="case" id="case10"></div>
+					<div class="case" id="case11"></div>
 				</div>
-
-				<div>
-					<input  id="cellule"/>
-					<input  id="cellule"/>
-					<input  id="cellule"/>
-					<input  id="cellule"/>
-					
-				</div>	
-
+				
+				<div class="block">
+					<div class="case" id="case12"></div>
+					<div class="case" id="case13"></div>
+					<div class="case" id="case14"></div>
+					<div class="case" id="case15"></div>
+				</div>
 			</div>
+
 
 			<div id="btn">
 
-				<button type="submit">Valider</button>
-				<button type="reset">Effacer</button>
+				<button type="submit" onClick="validation()" >Valider</button>
+				<button type="reset" onClick="generation()" >Effacer</button>
 		
 			</div>
 			
