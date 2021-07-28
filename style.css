@@ -1,0 +1,128 @@
+*, ::before, ::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	background-color: rgb(240, 239, 239);
+	height: 150vh;
+	width: auto;
+}
+
+h1 {
+	text-align: center;
+	justify-content: center;
+	padding: 40px;
+	font-size: 2.3rem;
+}
+
+.container {
+	background-color: white;
+	margin-left: auto;
+	margin-right: auto;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	align-items: center;
+	justify-content: space-evenly;
+	flex-wrap: nowrap;
+	height: auto;
+	width: 800px;
+}
+
+#myForm {
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+	margin: 10px;
+}
+
+#myForm label {
+	font-size: 1.125rem;
+	padding: 10px;
+}
+
+#myForm input {
+	font-size: 1rem;
+	padding: 10px;
+	background-color: white;
+	border: 1px solid grey;
+	border-radius: 5px;
+}
+
+#myForm #password{
+	font-size: 1rem;
+	padding: 10px;
+	background-color: rgb(240, 239, 239);
+	border: 1px solid transparent;
+	border-radius: 5px;
+}
+
+#clavier {
+	padding: 10px 0 0 70px;
+}
+
+#clavier div {
+	height: 50px;
+	width: 300px;
+	display: flex;
+	flex-direction: row;
+	margin: 4px;
+}
+
+#clavier input {
+	font-size: 1rem;
+	background-color: rgb(240, 239, 239);
+	width: 50px;
+	height: 50px;
+	margin: 2px;
+	border: none;
+	position: relative;
+	cursor: pointer;
+}
+
+#btn {
+	padding: 40px 20px 20px 20px;
+}
+
+#btn button {
+	font-size: 1rem;
+	background-color: rgb(26, 115, 248);
+	color: white;
+	padding: 10px 15px 10px 15px;
+	border: 1px solid transparent;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+#info {
+	justify-content: center;
+	margin: auto;
+	padding: 20px;
+}
+
+.aide img {
+	float: left;
+	padding: 5px;
+}
+
+.aide p {
+	font-size: 1rem;
+	padding: 10px;
+	color: rgb(26, 115, 248);
+	cursor: pointer;
+}
+
+.imp {
+	padding-top: 20px;
+}
+
+.imp p {
+	font-size: 1rem;
+	background-color: rgb(240, 239, 239);
+	color: black;
+	border-radius: 5px;
+	border: 1px solid rgb(240, 239, 239);
+	padding: 20px;
+}

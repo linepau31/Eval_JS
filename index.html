@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="style.css">
+	<title>Eval-javascript</title>
+</head>
+<body>
+
+	<h1>Authentification</h1>
+
+	<span class="message"></span>
+
+	<div class="container">
+		
+		<form id="myForm">
+
+				<label for="login">Identification</label>
+				<input type="email" name="email" id="login" placeholder="Saisissez votre identifiant">
+				<span id="erreurEmail"></span>
+				<label for="password">Mot de Passe</label>
+				<input type="password" name="password" id="password" placeholder="Composer votre mot de passe">
+				<span id="erreurPassword"></span>
+		
+			<div id="clavier">
+
+				<div>
+					<input id="cellule"/>
+					<input id="cellule"/>
+					<input id="cellule"/>
+					<input id="cellule"/>
+				</div>
+
+				<div>
+					
+					<input id="cellule"/>
+					<input id="cellule"/>
+					<input id="cellule"/>
+					<input id="cellule"/>
+
+				</div>
+
+				<div>
+					
+					<input  id="cellule"/>
+					<input  id="cellule"/>
+					<input  id="cellule"/>
+					<input  id="cellule"/>
+				</div>
+
+				<div>
+					<input  id="cellule"/>
+					<input  id="cellule"/>
+					<input  id="cellule"/>
+					<input  id="cellule"/>
+					
+				</div>	
+
+			</div>
+
+			<div id="btn">
+
+				<button type="submit">Valider</button>
+				<button type="reset">Effacer</button>
+		
+			</div>
+			
+			
+		</form>
+		
+
+		<div id="info">
+			<div class="aide">
+		
+				<img src="img/help_outline_black_24dp.svg" alt="icon">
+				<p>Aide à la connexion</p>
+				<img src="img/login_black_24dp.svg" alt="icon">
+				<p>Identifiant/Mot de passe perdu</p>
+				<img class="cadena" src="img/lock.svg" alt="icon">
+				<p>Sécurité identifiant/Mot de passe</p>
+			</div>	
+
+			<div class="imp">
+				<p><b>Important</b>: votre vigilance est primordiale pour assurer la sécurité de votre compte.</p>
+			</div>
+
+		</div>
+	</div>
+
+		<script src="script.js"></script>
+</body>
+</html>
