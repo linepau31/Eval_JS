@@ -1,14 +1,14 @@
 // Url API : https://www.ericfreelance.fr/api/check_user.php
-/*
-function check_user() {
+
+function user() {
 
     const logPass = 'eric@free.fr|123456';
     return logPass;
     
-}; */
+}; 
 
  
-const promise = fetch('https://www.ericfreelance.fr/api/check_user.php', {
+const promise = fetch('https://www.ericfreelance.fr/api/check_user.php/user', {
 
   method: 'POST',
   body: JSON.stringify(),
@@ -25,36 +25,42 @@ promise.then(async (response) => {
     console.log(contenu);
     
     if(response.ok){
-      console.log(`resultat est ok`);
-
+      console.log(`response ok`);
     }
-    else {
-      console.log(`réponse du serveur : ${response.status}`);
-      
-    }
+  
   } 
   catch (err) {
     console.log(err);
     
   }
 });
-    
+
+
+const Login = document.getElementById('login');
+const Password = document.getElementById('password');
+const Message = document.getElementById('message');
+
 
 function validation() {
 
-		let combinaison = logPass().split('|');
+		let combinaison = user().split('|');
 		let login = combinaison[0];
 		let password = combinaison[1];
 
 		if (document.getElementById('login').value.toLowerCase() == login.toLowerCase() && document.getElementById('password').value == password) 
 		{
 			document.getElementById('message').innerText = "Vous êtes désormais connecté !"; // return true
-		}	
+    
+		}
 		else {
 			document.getElementById('message').innerText = "L'authentification a échoué !"; // return false
 		}
-			
-}
+
+    setTimeout(function() {
+      document.getElementById('message').innerHTML = "";
+    },2000);
+    
+} 
 
 // Effacer les données et changer les chiffres de la grilles
 effacer();
@@ -84,6 +90,7 @@ effacer();
 
 			test = true;
 		}
+    
 	}
 
 	function purger() { // régenère la grille
@@ -92,6 +99,7 @@ effacer();
 			}
 			document.getElementById('login').value = "";
 			document.getElementById('password').value = "";
+
 	}
 
 
@@ -109,10 +117,13 @@ Form.addEventListener('submit', (e) => {
         
         ErrorEmail.innerHTML = "Le champs Identification est requis !";
         ErrorEmail.style.color = 'red';
-
+   
         e.preventDefault();
     } 
 
+    setTimeout(function() {
+      document.getElementById('erreurEmail').innerHTML = "";
+    },2000);
 
     const inpPassword = document.getElementById('password');
     let Regex = /^[0-9]+$/; // Accepte les chiffres de 0 à 9 répéter
@@ -123,6 +134,7 @@ Form.addEventListener('submit', (e) => {
         const ErrorPassword = document.getElementById('erreurPassword');
         ErrorPassword.innerHTML = "Le champs Mot de Passe est requis !";
         ErrorPassword.style.color = 'red';
+        
         e.preventDefault();
     }
     else if (Regex.test(inpPassword.value) == false){ // si ce n'est pas bon, d'autre valeurs que les chiffres
@@ -130,10 +142,15 @@ Form.addEventListener('submit', (e) => {
         const ErrorPassword = document.getElementById('erreurPassword');
         ErrorPassword.innerHTML = "Le Mot de Passe doit comporter uniquement des chifres !";
         ErrorPassword.style.color = 'red';
-         e.preventDefault();
+        
+        e.preventDefault();
     }
-   
+
+    setTimeout(function() {
+      document.getElementById('erreurPassword').innerHTML = "";
+    },2000);
 });
+
 
 /*
   La grille
@@ -160,6 +177,7 @@ for (let i = 0; i < 16; i++) {
 }
 
 cel.appendChild(div);  */
+
 
 
 
